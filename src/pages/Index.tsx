@@ -21,7 +21,6 @@ const Index = () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <LanguageSwitcher />
               <Link to="/register">
                 <Button variant="outline" className="border-violet-600 text-violet-600 hover:bg-violet-50">
                   {t('common.register')}
@@ -30,6 +29,7 @@ const Index = () => {
               <Link to="/admin">
                 <Button variant="ghost">{t('common.admin')}</Button>
               </Link>
+              <LanguageSwitcher />
             </div>
           </div>
         </div>
