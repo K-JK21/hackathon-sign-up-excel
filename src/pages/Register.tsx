@@ -16,7 +16,9 @@ export default function Register() {
           <Link to="/" className="flex items-center text-sm text-violet-600 hover:text-violet-500">
             <ArrowLeft className="mr-1 h-4 w-4" /> {t('common.backToHome')}
           </Link>
-          <LanguageSwitcher />
+          <div className="flex items-center">
+            <LanguageSwitcher />
+          </div>
         </div>
         
         <div className="max-w-3xl mx-auto pb-16">

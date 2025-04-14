@@ -20,10 +20,10 @@ const Index = () => {
                 <span className="text-xl font-bold text-violet-600">ЖаңырганАкыл</span>
               </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center space-x-4">
               <LanguageSwitcher />
               <Link to="/register">
-                <Button variant="outline" className="mr-4 border-violet-600 text-violet-600 hover:bg-violet-50">
+                <Button variant="outline" className="border-violet-600 text-violet-600 hover:bg-violet-50">
                   {t('common.register')}
                 </Button>
               </Link>
