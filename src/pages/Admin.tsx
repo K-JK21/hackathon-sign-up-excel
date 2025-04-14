@@ -12,11 +12,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { ArrowLeft, Lock } from "lucide-react";
 import AdminDashboard from "@/components/AdminDashboard";
+import { useTranslation } from "@/utils/i18n";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { t } = useTranslation();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ export default function Admin() {
       setIsAuthenticated(true);
       setError("");
     } else {
-      setError("Туура эмес сырсөз. Кайра аракет кылыңыз.");
+      setError(t('admin.wrongPassword'));
     }
   };
 
@@ -33,10 +36,11 @@ export default function Admin() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="py-8">
+        <div className="py-8 flex justify-between items-center">
           <Link to="/" className="flex items-center text-sm text-violet-600 hover:text-violet-500">
-            <ArrowLeft className="mr-1 h-4 w-4" /> Башкы бетке кайтуу
+            <ArrowLeft className="mr-1 h-4 w-4" /> {t('common.backToHome')}
           </Link>
+          <LanguageSwitcher />
         </div>
 
         {!isAuthenticated ? (
@@ -48,9 +52,9 @@ export default function Admin() {
                     <Lock className="h-6 w-6 text-violet-600" />
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-center">Администратор кирүүсү</CardTitle>
+                <CardTitle className="text-2xl text-center">{t('admin.title')}</CardTitle>
                 <CardDescription className="text-center">
-                  Администратор панелине кирүү үчүн сырсөздү киргизиңиз
+                  {t('admin.subtitle')}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -59,25 +63,25 @@ export default function Admin() {
                     <Input
                       id="password"
                       type="password"
-                      placeholder="Администратор сырсөздү киргизиңиз"
+                      placeholder={t('admin.password')}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     {error && <p className="text-sm text-red-500">{error}</p>}
                   </div>
                   <Button type="submit" className="w-full bg-violet-600 hover:bg-violet-700">
-                    Панелге кирүү
+                    {t('admin.login')}
                   </Button>
                 </form>
                 <p className="text-xs text-center text-gray-500">
-                  Демо максатында сырсөздү колдонуңуз: admin123
+                  {t('admin.demoPassword')}
                 </p>
               </CardContent>
             </Card>
           </div>
         ) : (
           <div className="pb-16">
-            <h1 className="text-2xl font-bold mb-6">Хакатон катышуучуларынын панели</h1>
+            <h1 className="text-2xl font-bold mb-6">{t('admin.dashboard')}</h1>
             <AdminDashboard />
           </div>
         )}

@@ -25,6 +25,7 @@ import {
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { saveParticipant } from "@/utils/excelUtils";
+import { useTranslation } from "@/utils/i18n";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -60,6 +61,7 @@ type FormValues = z.infer<typeof formSchema>;
 export default function RegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -100,7 +102,7 @@ export default function RegistrationForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Аты-жөнү</FormLabel>
+                <FormLabel>{t('form.name')}</FormLabel>
                 <FormControl>
                   <Input placeholder="Асан Усенов" {...field} />
                 </FormControl>
@@ -114,7 +116,7 @@ export default function RegistrationForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Электрондук почта</FormLabel>
+                <FormLabel>{t('form.email')}</FormLabel>
                 <FormControl>
                   <Input placeholder="asan.usenov@example.com" type="email" {...field} />
                 </FormControl>
@@ -128,7 +130,7 @@ export default function RegistrationForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Телефон номери</FormLabel>
+                <FormLabel>{t('form.phone')}</FormLabel>
                 <FormControl>
                   <Input placeholder="(0XXX) XX-XX-XX" {...field} />
                 </FormControl>
@@ -142,7 +144,7 @@ export default function RegistrationForm() {
             name="university"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Университет/Колледж</FormLabel>
+                <FormLabel>{t('form.university')}</FormLabel>
                 <FormControl>
                   <Input placeholder="Университет аты" {...field} />
                 </FormControl>
@@ -156,7 +158,7 @@ export default function RegistrationForm() {
             name="major"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Адистик</FormLabel>
+                <FormLabel>{t('form.major')}</FormLabel>
                 <FormControl>
                   <Input placeholder="Компьютердик илимдер" {...field} />
                 </FormControl>
@@ -170,7 +172,7 @@ export default function RegistrationForm() {
             name="graduationYear"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Бүтүрүү жылы</FormLabel>
+                <FormLabel>{t('form.gradYear')}</FormLabel>
                 <FormControl>
                   <Input placeholder="2025" {...field} />
                 </FormControl>
@@ -184,17 +186,17 @@ export default function RegistrationForm() {
             name="teamStatus"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Команда статусу</FormLabel>
+                <FormLabel>{t('form.teamStatus')}</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Команда статусун тандаңыз" />
+                      <SelectValue placeholder={t('form.teamStatusSelect')} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="looking">Команда издеп жатам</SelectItem>
-                    <SelectItem value="have_team">Командам бар</SelectItem>
-                    <SelectItem value="solo">Жалгыз катышам</SelectItem>
+                    <SelectItem value="looking">{t('form.looking')}</SelectItem>
+                    <SelectItem value="have_team">{t('form.haveTeam')}</SelectItem>
+                    <SelectItem value="solo">{t('form.solo')}</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -207,11 +209,11 @@ export default function RegistrationForm() {
             name="tshirtSize"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Футболка өлчөмү</FormLabel>
+                <FormLabel>{t('form.tshirtSize')}</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Футболка өлчөмүн тандаңыз" />
+                      <SelectValue placeholder={t('form.tshirtSizeSelect')} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -234,10 +236,10 @@ export default function RegistrationForm() {
           name="projectIdea"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Долбоор идеясы (Милдеттүү эмес)</FormLabel>
+              <FormLabel>{t('form.projectIdea')}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Долбоор идеяңыз же эмне түзүүгө кызыкканыңыз жөнүндө бөлүшүңүз..."
+                  placeholder={t('form.projectIdeaPlaceholder')}
                   className="resize-none min-h-[100px]"
                   {...field}
                 />
@@ -252,9 +254,9 @@ export default function RegistrationForm() {
           name="dietaryRestrictions"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Тамактануу чектөөлөрү (Милдеттүү эмес)</FormLabel>
+              <FormLabel>{t('form.dietaryRestrictions')}</FormLabel>
               <FormControl>
-                <Input placeholder="Вегетариандык, веган, глютенсиз, ж.б." {...field} />
+                <Input placeholder={t('form.dietaryRestrictionsPlaceholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -263,9 +265,9 @@ export default function RegistrationForm() {
         
         <Button type="submit" className="w-full bg-violet-600 hover:bg-violet-700" disabled={isSubmitting}>
           {isSubmitting ? (
-            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Каттоо жүрүүдө...</>
+            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('common.loading')}</>
           ) : (
-            "Каттоону аяктоо"
+            t('common.submit')
           )}
         </Button>
       </form>
