@@ -28,30 +28,30 @@ import { saveParticipant } from "@/utils/excelUtils";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Аты-жөнү 2 символдон ашуун болушу керек.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Туура электрондук почта дарегин киргизиңиз.",
   }),
   phone: z.string().min(10, {
-    message: "Please enter a valid phone number.",
+    message: "Туура телефон номерин киргизиңиз.",
   }),
   university: z.string().min(2, {
-    message: "University name must be at least 2 characters.",
+    message: "Университеттин аты 2 символдон ашуун болушу керек.",
   }),
   major: z.string().min(2, {
-    message: "Major must be at least 2 characters.",
+    message: "Адистик 2 символдон ашуун болушу керек.",
   }),
   graduationYear: z.string().regex(/^\d{4}$/, {
-    message: "Please enter a valid graduation year (e.g., 2025).",
+    message: "Туура бүтүрүү жылын киргизиңиз (мисалы, 2025).",
   }),
   teamStatus: z.string({
-    required_error: "Please select a team status.",
+    required_error: "Команда статусун тандаңыз.",
   }),
   projectIdea: z.string().optional(),
   dietaryRestrictions: z.string().optional(),
   tshirtSize: z.string({
-    required_error: "Please select a t-shirt size.",
+    required_error: "Футболка өлчөмүн тандаңыз.",
   }),
 });
 
@@ -81,11 +81,11 @@ export default function RegistrationForm() {
     setIsSubmitting(true);
     try {
       await saveParticipant(data);
-      toast.success("Registration successful!");
+      toast.success("Каттоо ийгиликтүү болду!");
       navigate("/success");
     } catch (error) {
       console.error("Registration error:", error);
-      toast.error("There was a problem with your registration. Please try again.");
+      toast.error("Каттоо маселеси келип чыкты. Кайра аракет кылыңыз.");
     } finally {
       setIsSubmitting(false);
     }
@@ -100,9 +100,9 @@ export default function RegistrationForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel>Аты-жөнү</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="Асан Усенов" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -114,9 +114,9 @@ export default function RegistrationForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Электрондук почта</FormLabel>
                 <FormControl>
-                  <Input placeholder="john.doe@example.com" type="email" {...field} />
+                  <Input placeholder="asan.usenov@example.com" type="email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -128,9 +128,9 @@ export default function RegistrationForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel>Телефон номери</FormLabel>
                 <FormControl>
-                  <Input placeholder="(123) 456-7890" {...field} />
+                  <Input placeholder="(0XXX) XX-XX-XX" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -142,9 +142,9 @@ export default function RegistrationForm() {
             name="university"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>University/College</FormLabel>
+                <FormLabel>Университет/Колледж</FormLabel>
                 <FormControl>
-                  <Input placeholder="University name" {...field} />
+                  <Input placeholder="Университет аты" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -156,9 +156,9 @@ export default function RegistrationForm() {
             name="major"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Major/Field of Study</FormLabel>
+                <FormLabel>Адистик</FormLabel>
                 <FormControl>
-                  <Input placeholder="Computer Science" {...field} />
+                  <Input placeholder="Компьютердик илимдер" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -170,7 +170,7 @@ export default function RegistrationForm() {
             name="graduationYear"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Graduation Year</FormLabel>
+                <FormLabel>Бүтүрүү жылы</FormLabel>
                 <FormControl>
                   <Input placeholder="2025" {...field} />
                 </FormControl>
@@ -184,17 +184,17 @@ export default function RegistrationForm() {
             name="teamStatus"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Team Status</FormLabel>
+                <FormLabel>Команда статусу</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select team status" />
+                      <SelectValue placeholder="Команда статусун тандаңыз" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="looking">Looking for a team</SelectItem>
-                    <SelectItem value="have_team">Have a team</SelectItem>
-                    <SelectItem value="solo">Going solo</SelectItem>
+                    <SelectItem value="looking">Команда издеп жатам</SelectItem>
+                    <SelectItem value="have_team">Командам бар</SelectItem>
+                    <SelectItem value="solo">Жалгыз катышам</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -207,11 +207,11 @@ export default function RegistrationForm() {
             name="tshirtSize"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>T-Shirt Size</FormLabel>
+                <FormLabel>Футболка өлчөмү</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select t-shirt size" />
+                      <SelectValue placeholder="Футболка өлчөмүн тандаңыз" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -234,10 +234,10 @@ export default function RegistrationForm() {
           name="projectIdea"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Project Idea (Optional)</FormLabel>
+              <FormLabel>Долбоор идеясы (Милдеттүү эмес)</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Share your project idea or what you're interested in building..."
+                  placeholder="Долбоор идеяңыз же эмне түзүүгө кызыкканыңыз жөнүндө бөлүшүңүз..."
                   className="resize-none min-h-[100px]"
                   {...field}
                 />
@@ -252,9 +252,9 @@ export default function RegistrationForm() {
           name="dietaryRestrictions"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Dietary Restrictions (Optional)</FormLabel>
+              <FormLabel>Тамактануу чектөөлөрү (Милдеттүү эмес)</FormLabel>
               <FormControl>
-                <Input placeholder="Vegetarian, vegan, gluten-free, etc." {...field} />
+                <Input placeholder="Вегетариандык, веган, глютенсиз, ж.б." {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -263,9 +263,9 @@ export default function RegistrationForm() {
         
         <Button type="submit" className="w-full bg-violet-600 hover:bg-violet-700" disabled={isSubmitting}>
           {isSubmitting ? (
-            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Registering...</>
+            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Каттоо жүрүүдө...</>
           ) : (
-            "Complete Registration"
+            "Каттоону аяктоо"
           )}
         </Button>
       </form>

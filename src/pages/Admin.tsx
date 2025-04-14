@@ -25,7 +25,7 @@ export default function Admin() {
       setIsAuthenticated(true);
       setError("");
     } else {
-      setError("Invalid password. Please try again.");
+      setError("Туура эмес сырсөз. Кайра аракет кылыңыз.");
     }
   };
 
@@ -35,7 +35,7 @@ export default function Admin() {
         {/* Header */}
         <div className="py-8">
           <Link to="/" className="flex items-center text-sm text-violet-600 hover:text-violet-500">
-            <ArrowLeft className="mr-1 h-4 w-4" /> Back to Home
+            <ArrowLeft className="mr-1 h-4 w-4" /> Башкы бетке кайтуу
           </Link>
         </div>
 
@@ -48,9 +48,9 @@ export default function Admin() {
                     <Lock className="h-6 w-6 text-violet-600" />
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-center">Admin Access</CardTitle>
+                <CardTitle className="text-2xl text-center">Администратор кирүүсү</CardTitle>
                 <CardDescription className="text-center">
-                  Enter the password to access the admin dashboard
+                  Администратор панелине кирүү үчүн сырсөздү киргизиңиз
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -59,25 +59,25 @@ export default function Admin() {
                     <Input
                       id="password"
                       type="password"
-                      placeholder="Enter admin password"
+                      placeholder="Администратор сырсөздү киргизиңиз"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     {error && <p className="text-sm text-red-500">{error}</p>}
                   </div>
                   <Button type="submit" className="w-full bg-violet-600 hover:bg-violet-700">
-                    Access Dashboard
+                    Панелге кирүү
                   </Button>
                 </form>
                 <p className="text-xs text-center text-gray-500">
-                  For demo purposes, use password: admin123
+                  Демо максатында сырсөздү колдонуңуз: admin123
                 </p>
               </CardContent>
             </Card>
           </div>
         ) : (
           <div className="pb-16">
-            <h1 className="text-2xl font-bold mb-6">Hackathon Participants Dashboard</h1>
+            <h1 className="text-2xl font-bold mb-6">Хакатон катышуучуларынын панели</h1>
             <AdminDashboard />
           </div>
         )}
