@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -75,7 +76,6 @@ export default function RegistrationForm() {
       email: "",
       phone: "",
       university: "",
-      major: "",
       graduationYear: "",
       teamStatus: "",
       projectIdea: "",

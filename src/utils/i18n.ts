@@ -1,3 +1,4 @@
+
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -86,7 +87,7 @@ export const translations = {
       checkStatusLink: 'текшериңиз',
     },
     form: {
-      name: 'Аты-жөнү',
+      fullName: 'Аты-жөнү',
       email: 'Электрондук почта',
       phone: 'Телефон номери',
       university: 'Университет/Колледж',
@@ -103,10 +104,6 @@ export const translations = {
       projectIdeaPlaceholder: 'Долбоор идеяңыз же эмне түзүүгө кызыкканыңыз жөнүндө бөлүшүңүз...',
       dietaryRestrictions: 'Тамактануу чектөөлөрү (Милдеттүү эмес)',
       dietaryRestrictionsPlaceholder: 'Вегетариандык, веган, глютенсиз, ж.б.',
-      fullName: 'Аты-жөнү',
-      phone: 'Телефон номери',
-      email: 'Электрондук почта',
-      university: 'Университет/Колледж',
       teamName: 'Команданын аталышы',
       teamSize: 'Команда мүчөлөрүнүн саны',
       teamMembers: 'Команда мүчөлөрүнүн аты-жөнү',
@@ -163,7 +160,7 @@ export const translations = {
     hero: {
       title: 'Жаңырган Акыл 2025',
       subtitle: 'Хакатон по технологиям чат-ботов Кыргызского Национального Университета имени Жусупа Баласагына',
-      description: 'Примите участие в самом интересном хакатоне Кыргызской Республики. Создавайте инновационные проекты, работайте в командах и выигрывайте призы!',
+      description: 'Примите участие в самом увлекательном хакатоне года. Создавайте инновационные проекты, общайтесь с единомышленниками и выигрывайте призы!',
       register: 'Зарегистрироваться сейчас',
       learnMore: 'Узнать больше',
       date: '25-27 апреля, 2025',
@@ -195,7 +192,7 @@ export const translations = {
       checkStatusLink: 'здесь',
     },
     form: {
-      name: 'ФИО',
+      fullName: 'ФИО',
       email: 'Электронная почта',
       phone: 'Номер телефона',
       university: 'Университет/Колледж',
@@ -212,10 +209,6 @@ export const translations = {
       projectIdeaPlaceholder: 'Поделитесь своей идеей проекта или тем, что вам интересно создавать...',
       dietaryRestrictions: 'Пищевые ограничения (Необязательно)',
       dietaryRestrictionsPlaceholder: 'Вегетарианство, веганство, без глютена и т.д.',
-      fullName: 'ФИО',
-      phone: 'Номер телефона',
-      email: 'Электронная почта',
-      university: 'Университет/Колледж',
       teamName: 'Наименование команды',
       teamSize: 'Количество участников в команде',
       teamMembers: 'ФИО участников команды',
@@ -304,7 +297,7 @@ export const translations = {
       checkStatusLink: 'here',
     },
     form: {
-      name: 'Full Name',
+      fullName: 'Full Name',
       email: 'Email Address',
       phone: 'Phone Number',
       university: 'University/College',
@@ -321,10 +314,6 @@ export const translations = {
       projectIdeaPlaceholder: 'Share your project idea or what you\'re interested in building...',
       dietaryRestrictions: 'Dietary Restrictions (Optional)',
       dietaryRestrictionsPlaceholder: 'Vegetarian, vegan, gluten-free, etc.',
-      fullName: 'Full Name',
-      phone: 'Phone Number',
-      email: 'Email',
-      university: 'University/College',
       teamName: 'Team Name',
       teamSize: 'Number of Team Members',
       teamMembers: 'Team Members Full Names',
