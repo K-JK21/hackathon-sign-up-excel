@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -14,14 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { saveParticipant } from "@/utils/excelUtils";
@@ -49,17 +40,6 @@ const formSchema = z.object({
   teamMembers: z.string().min(2, {
     message: "Команда мүчөлөрүнүн аты-жөнүн киргизиңиз.",
   }),
-  graduationYear: z.string().regex(/^\d{4}$/, {
-    message: "Туура бүтүрүү жылын киргизиңиз (мисалы, 2025).",
-  }),
-  teamStatus: z.string({
-    required_error: "Команда статусун тандаңыз.",
-  }),
-  projectIdea: z.string().optional(),
-  dietaryRestrictions: z.string().optional(),
-  tshirtSize: z.string({
-    required_error: "Футболка өлчөмүн тандаңыз.",
-  }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -76,11 +56,6 @@ export default function RegistrationForm() {
       email: "",
       phone: "",
       university: "",
-      graduationYear: "",
-      teamStatus: "",
-      projectIdea: "",
-      dietaryRestrictions: "",
-      tshirtSize: "",
       teamName: "",
       teamSize: "",
       teamMembers: "",
@@ -197,106 +172,10 @@ export default function RegistrationForm() {
             <FormItem>
               <FormLabel>{t('form.teamMembers')}</FormLabel>
               <FormControl>
-                <Textarea
+                <Input
                   placeholder={t('form.teamMembers')}
-                  className="resize-none min-h-[100px]"
                   {...field}
                 />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="graduationYear"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('form.gradYear')}</FormLabel>
-              <FormControl>
-                <Input placeholder="2025" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="teamStatus"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('form.teamStatus')}</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder={t('form.teamStatusSelect')} />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="looking">{t('form.looking')}</SelectItem>
-                  <SelectItem value="have_team">{t('form.haveTeam')}</SelectItem>
-                  <SelectItem value="solo">{t('form.solo')}</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="tshirtSize"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('form.tshirtSize')}</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder={t('form.tshirtSizeSelect')} />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="xs">XS</SelectItem>
-                  <SelectItem value="s">S</SelectItem>
-                  <SelectItem value="m">M</SelectItem>
-                  <SelectItem value="l">L</SelectItem>
-                  <SelectItem value="xl">XL</SelectItem>
-                  <SelectItem value="xxl">XXL</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="projectIdea"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('form.projectIdea')}</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder={t('form.projectIdeaPlaceholder')}
-                  className="resize-none min-h-[100px]"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="dietaryRestrictions"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t('form.dietaryRestrictions')}</FormLabel>
-              <FormControl>
-                <Input placeholder={t('form.dietaryRestrictionsPlaceholder')} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
