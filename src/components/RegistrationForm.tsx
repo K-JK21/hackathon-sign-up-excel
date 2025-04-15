@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -40,8 +39,14 @@ const formSchema = z.object({
   university: z.string().min(2, {
     message: "Университеттин аты 2 символдон ашуун болушу керек.",
   }),
-  major: z.string().min(2, {
-    message: "Адистик 2 символдон ашуун болушу керек.",
+  teamName: z.string().min(2, {
+    message: "Команданын аталышы 2 символдон ашуун болушу керек.",
+  }),
+  teamSize: z.string().min(1, {
+    message: "Команда мүчөлөрүнүн санын киргизиңиз.",
+  }),
+  teamMembers: z.string().min(2, {
+    message: "Команда мүчөлөрүнүн аты-жөнүн киргизиңиз.",
   }),
   graduationYear: z.string().regex(/^\d{4}$/, {
     message: "Туура бүтүрүү жылын киргизиңиз (мисалы, 2025).",
@@ -76,6 +81,9 @@ export default function RegistrationForm() {
       projectIdea: "",
       dietaryRestrictions: "",
       tshirtSize: "",
+      teamName: "",
+      teamSize: "",
+      teamMembers: "",
     },
   });
 
@@ -102,23 +110,9 @@ export default function RegistrationForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('form.name')}</FormLabel>
+                <FormLabel>{t('form.fullName')}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Асан Усенов" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t('form.email')}</FormLabel>
-                <FormControl>
-                  <Input placeholder="asan.usenov@example.com" type="email" {...field} />
+                  <Input placeholder={t('form.fullName')} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -132,7 +126,21 @@ export default function RegistrationForm() {
               <FormItem>
                 <FormLabel>{t('form.phone')}</FormLabel>
                 <FormControl>
-                  <Input placeholder="(0XXX) XX-XX-XX" {...field} />
+                  <Input placeholder="+996 XXX XXX XXX" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t('form.email')}</FormLabel>
+                <FormControl>
+                  <Input type="email" placeholder="email@example.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -146,7 +154,7 @@ export default function RegistrationForm() {
               <FormItem>
                 <FormLabel>{t('form.university')}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Университет аты" {...field} />
+                  <Input placeholder={t('form.university')} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -155,12 +163,12 @@ export default function RegistrationForm() {
           
           <FormField
             control={form.control}
-            name="major"
+            name="teamName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('form.major')}</FormLabel>
+                <FormLabel>{t('form.teamName')}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Компьютердик илимдер" {...field} />
+                  <Input placeholder={t('form.teamName')} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -169,67 +177,99 @@ export default function RegistrationForm() {
           
           <FormField
             control={form.control}
-            name="graduationYear"
+            name="teamSize"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{t('form.gradYear')}</FormLabel>
+                <FormLabel>{t('form.teamSize')}</FormLabel>
                 <FormControl>
-                  <Input placeholder="2025" {...field} />
+                  <Input type="number" min="1" placeholder="1" {...field} />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="teamStatus"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t('form.teamStatus')}</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder={t('form.teamStatusSelect')} />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="looking">{t('form.looking')}</SelectItem>
-                    <SelectItem value="have_team">{t('form.haveTeam')}</SelectItem>
-                    <SelectItem value="solo">{t('form.solo')}</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="tshirtSize"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t('form.tshirtSize')}</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder={t('form.tshirtSizeSelect')} />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="xs">XS</SelectItem>
-                    <SelectItem value="s">S</SelectItem>
-                    <SelectItem value="m">M</SelectItem>
-                    <SelectItem value="l">L</SelectItem>
-                    <SelectItem value="xl">XL</SelectItem>
-                    <SelectItem value="xxl">XXL</SelectItem>
-                  </SelectContent>
-                </Select>
                 <FormMessage />
               </FormItem>
             )}
           />
         </div>
+        
+        <FormField
+          control={form.control}
+          name="teamMembers"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('form.teamMembers')}</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder={t('form.teamMembers')}
+                  className="resize-none min-h-[100px]"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="graduationYear"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('form.gradYear')}</FormLabel>
+              <FormControl>
+                <Input placeholder="2025" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="teamStatus"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('form.teamStatus')}</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder={t('form.teamStatusSelect')} />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="looking">{t('form.looking')}</SelectItem>
+                  <SelectItem value="have_team">{t('form.haveTeam')}</SelectItem>
+                  <SelectItem value="solo">{t('form.solo')}</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <FormField
+          control={form.control}
+          name="tshirtSize"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('form.tshirtSize')}</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder={t('form.tshirtSizeSelect')} />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="xs">XS</SelectItem>
+                  <SelectItem value="s">S</SelectItem>
+                  <SelectItem value="m">M</SelectItem>
+                  <SelectItem value="l">L</SelectItem>
+                  <SelectItem value="xl">XL</SelectItem>
+                  <SelectItem value="xxl">XXL</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         
         <FormField
           control={form.control}

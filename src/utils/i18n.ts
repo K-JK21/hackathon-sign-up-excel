@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -55,7 +54,7 @@ export const translations = {
     hero: {
       title: 'Жаңырган Акыл 2025',
       subtitle: 'Жусуп Баласагын атындагы Кыргыз Улуттук университетинин чатбот технологиялары боюнча хакатону',
-      description: 'Жылдын эң кызыктуу хакатонуна катышыңыз. Инновациялык долбоорлорду түзүңүз, өзүңүз сыяктуу иштеп чыгуучулар менен байланышыңыз жана укмуштуудай сыйлыктарды утуп алыңыз!',
+      description: 'Кыргыз Республикасындагы эң кызыктуу хакатонго катышыңыз. Инновациялык долбоорлорду түзүңүз, командалар менен иштешиңиз жана сыйлыктарды утуп алыңыз!',
       register: 'Азыр катталуу',
       learnMore: 'Көбүрөөк маалымат',
       date: '25-27-апрель, 2025',
@@ -104,6 +103,13 @@ export const translations = {
       projectIdeaPlaceholder: 'Долбоор идеяңыз же эмне түзүүгө кызыкканыңыз жөнүндө бөлүшүңүз...',
       dietaryRestrictions: 'Тамактануу чектөөлөрү (Милдеттүү эмес)',
       dietaryRestrictionsPlaceholder: 'Вегетариандык, веган, глютенсиз, ж.б.',
+      fullName: 'Аты-жөнү',
+      phone: 'Телефон номери',
+      email: 'Электрондук почта',
+      university: 'Университет/Колледж',
+      teamName: 'Команданын аталышы',
+      teamSize: 'Команда мүчөлөрүнүн саны',
+      teamMembers: 'Команда мүчөлөрүнүн аты-жөнү',
     },
     success: {
       title: 'Каттоо ийгиликтүү болду!',
@@ -142,6 +148,9 @@ export const translations = {
         solo: 'Жалгыз',
       },
     },
+    footer: {
+      university: 'Жусуп Баласагын атындагы Кыргыз Улуттук университети & UlutSoft',
+    },
   },
   ru: {
     common: {
@@ -154,7 +163,7 @@ export const translations = {
     hero: {
       title: 'Жаңырган Акыл 2025',
       subtitle: 'Хакатон по технологиям чат-ботов Кыргызского Национального Университета имени Жусупа Баласагына',
-      description: 'Примите участие в самом увлекательном хакатоне года. Создавайте инновационные проекты, общайтесь с единомышленниками и выигрывайте потрясающие призы!',
+      description: 'Примите участие в самом интересном хакатоне Кыргызской Республики. Создавайте инновационные проекты, работайте в командах и выигрывайте призы!',
       register: 'Зарегистрироваться сейчас',
       learnMore: 'Узнать больше',
       date: '25-27 апреля, 2025',
@@ -203,6 +212,13 @@ export const translations = {
       projectIdeaPlaceholder: 'Поделитесь своей идеей проекта или тем, что вам интересно создавать...',
       dietaryRestrictions: 'Пищевые ограничения (Необязательно)',
       dietaryRestrictionsPlaceholder: 'Вегетарианство, веганство, без глютена и т.д.',
+      fullName: 'ФИО',
+      phone: 'Номер телефона',
+      email: 'Электронная почта',
+      university: 'Университет/Колледж',
+      teamName: 'Наименование команды',
+      teamSize: 'Количество участников в команде',
+      teamMembers: 'ФИО участников команды',
     },
     success: {
       title: 'Регистрация прошла успешно!',
@@ -241,6 +257,9 @@ export const translations = {
         solo: 'Один',
       },
     },
+    footer: {
+      university: 'Кыргызский Национальный Университет имени Жусупа Баласагына & UlutSoft',
+    },
   },
   en: {
     common: {
@@ -253,7 +272,7 @@ export const translations = {
     hero: {
       title: 'Jañyrgan Akyl 2025',
       subtitle: 'Chatbot Technologies Hackathon by Jusup Balasagyn Kyrgyz National University',
-      description: 'Join the most exciting hackathon of the year. Create innovative projects, connect with like-minded developers, and win amazing prizes!',
+      description: 'Join the most exciting hackathon in the Kyrgyz Republic. Create innovative projects, work with teams, and win prizes!',
       register: 'Register Now',
       learnMore: 'Learn More',
       date: 'April 25-27, 2025',
@@ -302,6 +321,13 @@ export const translations = {
       projectIdeaPlaceholder: 'Share your project idea or what you\'re interested in building...',
       dietaryRestrictions: 'Dietary Restrictions (Optional)',
       dietaryRestrictionsPlaceholder: 'Vegetarian, vegan, gluten-free, etc.',
+      fullName: 'Full Name',
+      phone: 'Phone Number',
+      email: 'Email',
+      university: 'University/College',
+      teamName: 'Team Name',
+      teamSize: 'Number of Team Members',
+      teamMembers: 'Team Members Full Names',
     },
     success: {
       title: 'Registration Successful!',
@@ -339,6 +365,9 @@ export const translations = {
         haveTeam: 'Has team',
         solo: 'Solo',
       },
+    },
+    footer: {
+      university: 'Kyrgyz National University named after Zhusup Balasagyn & UlutSoft',
     },
   },
 };
