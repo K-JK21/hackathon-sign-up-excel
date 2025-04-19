@@ -1,3 +1,4 @@
+
 const translations = {
   en: {
     hero: {
@@ -7,9 +8,9 @@ const translations = {
       participantsDescription: 'Engage with hundreds of developers, designers, and entrepreneurs from around the globe.',
       prizes: 'Valuable Prize Pool',
       eventTimeline: {
-        20_MAY: 'Event starts (May 20)',
-        21_MAY: 'Project review and testing (May 21)',
-        22_MAY: 'Announcing results and awarding winners (May 22)'
+        "day20": 'Event starts (May 20)',
+        "day21": 'Project review and testing (May 21)',
+        "day22": 'Announcing results and awarding winners (May 22)'
       }
     }
   },
@@ -21,10 +22,12 @@ const translations = {
       participantsDescription: 'Дүйнөнүн булуң-бурчунан келген жүздөгөн программисттер, дизайнерлер жана ишкерлер менен катышыңыз.',
       prizes: 'Баалуу сыйлык фонду',
       eventTimeline: {
-        20_MAY: 'Байге башталат (20-май)',
-        21_MAY: 'Долбоорлорду баалоо жана сынап көрүү (21-май)',
-        22_MAY: 'Жыйынтыктарды чыгаруу жана жеңүүчүлөрдү сыйлоо (22-май)'
+        "day20": 'Байге башталат (20-май)',
+        "day21": 'Долбоорлорду баалоо жана сынап көрүү (21-май)',
+        "day22": 'Жыйынтыктарды чыгаруу жана жеңүүчүлөрдү сыйлоо (22-май)'
       }
     }
   }
 }
+
+export default translations;
