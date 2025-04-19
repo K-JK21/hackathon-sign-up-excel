@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { useEffect, useState } from 'react';
@@ -83,8 +82,8 @@ export const translations = {
       description: 'Кыргыз Республикасындагы эң кызыктуу хакатонго катышыңыз. Инновациялык долбоорлорду түзүңүз, командалар менен иштешиңиз жана сыйлыктарды утуп алыңыз!',
       register: 'Азыр катталуу',
       learnMore: 'Көбүрөөк маалымат',
-      date: '20-май, 2025',
-      dateSub: '4-7 саат кодтоо, кызматташуу жана чыгармачылык. Күн тартибиңизге белгилеңиз!',
+      date: '20-22-май, 2025',
+      dateSub: '20-майда старт, 21-майда сынап көрүү, 22-майда жыйынтыктарды чыгаруу. 4-7 саат кодтоо, кызматташуу жана чыгармачылык!',
       participants: '200+ катышуучу',
       participantsSub: 'Дүйнөнүн булуң-бурчунан келген жүздөгөн программисттер, дизайнерлер жана ишкерлер менен катышыңыз.',
       prize: 'Баалуу сыйлык фонду',
@@ -94,7 +93,7 @@ export const translations = {
       about: 'Хакатон жөнүндө',
       aboutSub: 'Инновация, кызматташтык жана көйгөйлөрдү чечүүнүн бир апта мааласы.',
       build: 'Укмуштуудай нерсе жаратыңыз',
-      buildSub: 'Реалдуу дүйнөдөгү көйгөйлөрдү чечүү үчүн каалаган технологиялык стекти колдонуңуз.',
+      buildSub: 'Реалдуу дүйнөдөгү көйгөйлө��дү чечүү үчүн каалаган технологиялык стекти колдонуңуз.',
       connect: 'Башкалар менен байланыш түзүңүз',
       connectSub: 'Катышуучулар, менторлор жана тармактык адистер менен байланышыңыз.',
       learn: 'Жаңы көндүмдөрдү үйрөнүңүз',
@@ -175,8 +174,8 @@ export const translations = {
       description: 'Примите участие в самом увлекательном хакатоне года. Создавайте инновационные проекты, общайтесь с единомышленниками и выигрывайте призы!',
       register: 'Зарегистрироваться сейчас',
       learnMore: 'Узнать больше',
-      date: '25-27 апреля, 2025',
-      dateSub: '48 часов кодирования, сотрудничества и творчества. Отметьте в своем календаре!',
+      date: '20-22 мая, 2025',
+      dateSub: 'Старт 20 мая, обзор 21 мая, подведение итогов 22 мая. 4-7 часов кодирования, сотрудничества и творчества!',
       participants: '300+ участников',
       participantsSub: 'Присоединяйтесь к сотням программистов, дизайнеров и предпринимателей со всего мира.',
       prize: 'Призовой фонд $10,000',
@@ -214,7 +213,7 @@ export const translations = {
     },
     success: {
       title: 'Регистрация прошла успешно!',
-      subtitle: 'Спасибо за регистрацию на хакатон Жаңырган Акыл. Мы с нетерпением ждем встречи с вами!',
+      subtitle: 'Спасибо за регистрацию на хакатон Жаңырган Акы��. Мы с нетерпением ждем встречи с вами!',
       nextSteps: 'Что дальше?',
       checkEmail: 'Проверьте свою электронную почту для подтверждения регистрации с дополнительной информацией.',
       markDate: 'Отметьте дату:',
@@ -267,8 +266,8 @@ export const translations = {
       description: 'Join the most exciting hackathon in the Kyrgyz Republic. Create innovative projects, work with teams, and win prizes!',
       register: 'Register Now',
       learnMore: 'Learn More',
-      date: 'April 25-27, 2025',
-      dateSub: '48 hours of coding, collaboration, and creativity. Mark your calendar!',
+      date: 'May 20-22, 2025',
+      dateSub: 'Start on May 20, review on May 21, results on May 22. 4-7 hours of coding, collaboration, and creativity!',
       participants: '300+ participants',
       participantsSub: 'Join hundreds of programmers, designers, and entrepreneurs from around the world.',
       prize: '$10,000 prize pool',
