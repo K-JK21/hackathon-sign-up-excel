@@ -1,11 +1,13 @@
+
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { useEffect, useState } from 'react';
 
 // Available languages
 export type Language = 'ky' | 'ru' | 'en';
 
 // Store to manage the current language
-export const useLanguage = create(
+export const useLanguageStore = create(
   persist<{
     language: Language;
     setLanguage: (language: Language) => void;
@@ -19,6 +21,30 @@ export const useLanguage = create(
     }
   )
 );
+
+// Safe hook wrapper to use in components
+export function useLanguage() {
+  // Empty dependency array to only run once on component mount
+  const [store, setStore] = useState({
+    language: 'ky' as Language,
+    setLanguage: (lang: Language) => {}
+  });
+  
+  useEffect(() => {
+    // Only access the store inside effects or events
+    const { language, setLanguage } = useLanguageStore.getState();
+    setStore({ language, setLanguage });
+    
+    // Subscribe to store changes
+    const unsubscribe = useLanguageStore.subscribe(
+      (state) => setStore({ language: state.language, setLanguage: state.setLanguage })
+    );
+    
+    return unsubscribe;
+  }, []);
+  
+  return store;
+}
 
 // Helper function to get translations for current language
 export function useTranslation() {

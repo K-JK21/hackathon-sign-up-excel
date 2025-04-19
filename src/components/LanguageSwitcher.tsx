@@ -6,8 +6,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Language, useLanguage } from "@/utils/i18n";
+import { Language, useLanguage, useLanguageStore } from "@/utils/i18n";
 import { Globe } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const languageNames = {
   ky: "Кыргызча",
