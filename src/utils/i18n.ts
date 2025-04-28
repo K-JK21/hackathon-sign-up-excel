@@ -93,7 +93,7 @@ export const translations = {
       about: 'Хакатон жөнүндө',
       aboutSub: 'Инновация, кызматташтык жана көйгөйлөрдү чечүүнүн бир апта мааласы.',
       build: 'Укмуштуудай нерсе жаратыңыз',
-      buildSub: 'Реалдуу дүйнөдөгү көйгөйлөрдү чечүү үчүн каалаган технологиялык стекти колдонуңуз.',
+      buildSub: 'Реалдуу ��үйнөдөгү көйгөйлөрдү чечүү үчүн каалаган технологиялык стекти колдонуңуз.',
       connect: 'Башкалар менен байланыш түзүңүз',
       connectSub: 'Катышуучулар, менторлор жана тармактык адистер менен байланышыңыз.',
       learn: 'Жаңы көндүмдөрдү үйрөнүңүз',
@@ -154,6 +154,7 @@ export const translations = {
         haveTeam: 'Командасы бар',
         solo: 'Жалгыз катышам',
       },
+      demoPassword: '',
     },
     footer: {
       university: 'Жусуп Баласагын атындагы Кыргыз Улуттук университети & UlutSoft',
@@ -245,6 +246,7 @@ export const translations = {
         haveTeam: 'Есть команда',
         solo: 'Один',
       },
+      demoPassword: '',
     },
     footer: {
       university: 'Кыргызский Национальный Университет имени Жусупа Баласагына & UlutSoft',
@@ -336,6 +338,7 @@ export const translations = {
         haveTeam: 'Has team',
         solo: 'Solo',
       },
+      demoPassword: '',
     },
     footer: {
       university: 'Kyrgyz National University named after Zhusup Balasagyn & UlutSoft',
