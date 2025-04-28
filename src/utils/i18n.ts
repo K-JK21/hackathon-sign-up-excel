@@ -1,3 +1,4 @@
+
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { useEffect, useState } from 'react';
@@ -93,7 +94,7 @@ export const translations = {
       about: 'Хакатон жөнүндө',
       aboutSub: 'Инновация, кызматташтык жана көйгөйлөрдү чечүүнүн бир апта мааласы.',
       build: 'Укмуштуудай нерсе жаратыңыз',
-      buildSub: 'Реалдуу ��үйнөдөгү көйгөйлөрдү чечүү үчүн каалаган технологиялык стекти колдонуңуз.',
+      buildSub: 'Реалдуу дүйнөдөгү көйгөйлөрдү чечүү үчүн каалаган технологиялык стекти колдонуңуз.',
       connect: 'Башкалар менен байланыш түзүңүз',
       connectSub: 'Катышуучулар, менторлор жана тармактык адистер менен байланышыңыз.',
       learn: 'Жаңы көндүмдөрдү үйрөнүңүз',
@@ -154,7 +155,6 @@ export const translations = {
         haveTeam: 'Командасы бар',
         solo: 'Жалгыз катышам',
       },
-      demoPassword: '',
     },
     footer: {
       university: 'Жусуп Баласагын атындагы Кыргыз Улуттук университети & UlutSoft',
@@ -213,7 +213,7 @@ export const translations = {
     },
     success: {
       title: 'Регистрация прошла успешно!',
-      subtitle: 'Спаси��о за регистра��ию на хакатон Жаңырган Акы��. Мы с нетерпением ждем встречи с вами!',
+      subtitle: 'Спасибо за регистрацию на хакатон Жаңырган Акыл. Мы с нетерпением ждем встречи с вами!',
       nextSteps: 'Что дальше?',
       checkEmail: 'Проверьте свою электронную почту для подтверждения регистрации с дополнительной информацией.',
       markDate: 'Отметьте дату:',
@@ -246,7 +246,6 @@ export const translations = {
         haveTeam: 'Есть команда',
         solo: 'Один',
       },
-      demoPassword: '',
     },
     footer: {
       university: 'Кыргызский Национальный Университет имени Жусупа Баласагына & UlutSoft',
@@ -338,7 +337,6 @@ export const translations = {
         haveTeam: 'Has team',
         solo: 'Solo',
       },
-      demoPassword: '',
     },
     footer: {
       university: 'Kyrgyz National University named after Zhusup Balasagyn & UlutSoft',

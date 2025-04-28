@@ -73,9 +73,6 @@ export default function Admin() {
                     {t('admin.login')}
                   </Button>
                 </form>
-                <p className="text-xs text-center text-gray-500">
-                  {t('admin.demoPassword')}
-                </p>
               </CardContent>
             </Card>
           </div>
