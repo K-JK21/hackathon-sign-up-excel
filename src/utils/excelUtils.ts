@@ -1,4 +1,3 @@
-
 import * as XLSX from 'xlsx';
 
 // In-memory storage for participants (in a real app, this would be a database)
@@ -75,3 +74,19 @@ export const initParticipants = () => {
 
 // Call initialization immediately
 initParticipants();
+
+// Function to delete a participant
+export const deleteParticipant = (id: string) => {
+  try {
+    // Get current participants
+    const currentParticipants = getParticipants();
+    // Filter out the deleted participant
+    const updatedParticipants = currentParticipants.filter(p => p.id !== id);
+    // Update localStorage
+    localStorage.setItem('hackathon_participants', JSON.stringify(updatedParticipants));
+    return true;
+  } catch (error) {
+    console.error('Error deleting participant:', error);
+    return false;
+  }
+};

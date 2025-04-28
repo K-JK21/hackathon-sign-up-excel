@@ -10,31 +10,46 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { downloadExcel, getParticipants } from "@/utils/excelUtils";
-import { Download, Search, UserX } from "lucide-react";
+import { downloadExcel, getParticipants, deleteParticipant } from "@/utils/excelUtils";
+import { Download, Search, UserX, Trash2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "@/utils/i18n";
 
 export default function AdminDashboard() {
   const [participants, setParticipants] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    // Load participants data
-    const loadParticipants = () => {
-      try {
-        const data = getParticipants();
-        setParticipants(data);
-      } catch (error) {
-        console.error("Error loading participants:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const loadParticipants = () => {
+    try {
+      const data = getParticipants();
+      setParticipants(data);
+    } catch (error) {
+      console.error("Error loading participants:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
+  useEffect(() => {
     loadParticipants();
   }, []);
+
+  const handleDelete = (id: string) => {
+    if (deleteParticipant(id)) {
+      loadParticipants();
+      toast({
+        description: t('admin.deleteSuccess') || "Participant deleted successfully",
+      });
+    } else {
+      toast({
+        variant: "destructive",
+        description: t('admin.deleteError') || "Error deleting participant",
+      });
+    }
+  };
 
   // Filter participants based on search term
   const filteredParticipants = participants.filter((participant) => {
@@ -91,6 +106,7 @@ export default function AdminDashboard() {
                   <TableHead>{t('admin.tableHeaders.major')}</TableHead>
                   <TableHead>{t('admin.tableHeaders.teamStatus')}</TableHead>
                   <TableHead>{t('admin.tableHeaders.registrationDate')}</TableHead>
+                  <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -109,6 +125,15 @@ export default function AdminDashboard() {
                     </TableCell>
                     <TableCell>
                       {new Date(participant.registrationDate).toLocaleDateString()}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <Button
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => handleDelete(participant.id)}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
