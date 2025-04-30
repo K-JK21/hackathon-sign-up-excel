@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -24,11 +23,11 @@ export default function Admin() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Simple password check - in a real app, use proper authentication
-    if (password === "admin123") {
+    if (password === "tegerekstol") {
       setIsAuthenticated(true);
       setError("");
     } else {
-      setError(t('admin.wrongPassword'));
+      setError(t("admin.wrongPassword"));
     }
   };
 
@@ -37,8 +36,11 @@ export default function Admin() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="py-8 flex justify-between items-center">
-          <Link to="/" className="flex items-center text-sm text-violet-600 hover:text-violet-500">
-            <ArrowLeft className="mr-1 h-4 w-4" /> {t('common.backToHome')}
+          <Link
+            to="/"
+            className="flex items-center text-sm text-violet-600 hover:text-violet-500"
+          >
+            <ArrowLeft className="mr-1 h-4 w-4" /> {t("common.backToHome")}
           </Link>
           <LanguageSwitcher />
         </div>
@@ -52,9 +54,11 @@ export default function Admin() {
                     <Lock className="h-6 w-6 text-violet-600" />
                   </div>
                 </div>
-                <CardTitle className="text-2xl text-center">{t('admin.title')}</CardTitle>
+                <CardTitle className="text-2xl text-center">
+                  {t("admin.title")}
+                </CardTitle>
                 <CardDescription className="text-center">
-                  {t('admin.subtitle')}
+                  {t("admin.subtitle")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -63,14 +67,17 @@ export default function Admin() {
                     <Input
                       id="password"
                       type="password"
-                      placeholder={t('admin.password')}
+                      placeholder={t("admin.password")}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     {error && <p className="text-sm text-red-500">{error}</p>}
                   </div>
-                  <Button type="submit" className="w-full bg-violet-600 hover:bg-violet-700">
-                    {t('admin.login')}
+                  <Button
+                    type="submit"
+                    className="w-full bg-violet-600 hover:bg-violet-700"
+                  >
+                    {t("admin.login")}
                   </Button>
                 </form>
               </CardContent>
@@ -78,7 +85,7 @@ export default function Admin() {
           </div>
         ) : (
           <div className="pb-16">
-            <h1 className="text-2xl font-bold mb-6">{t('admin.dashboard')}</h1>
+            <h1 className="text-2xl font-bold mb-6">{t("admin.dashboard")}</h1>
             <AdminDashboard />
           </div>
         )}
