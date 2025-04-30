@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -9,7 +8,10 @@ import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { saveParticipant } from "@/utils/excelUtils";
 import { useTranslation } from "@/utils/i18n";
-import { registrationSchema, type RegistrationFormValues } from "@/schemas/registrationSchema";
+import {
+  registrationSchema,
+  type RegistrationFormValues,
+} from "@/schemas/registrationSchema";
 import { RegistrationFormField } from "./form/RegistrationFormField";
 
 export default function RegistrationForm() {
@@ -48,54 +50,61 @@ export default function RegistrationForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <RegistrationFormField 
+          <RegistrationFormField
             form={form}
             name="name"
-            label={t('form.fullName')}
+            label={t("form.fullName")}
           />
-          <RegistrationFormField 
+          <RegistrationFormField
             form={form}
             name="phone"
-            label={t('form.phone')}
+            label={t("form.phone")}
             placeholder="+996 XXX XXX XXX"
           />
-          <RegistrationFormField 
+          <RegistrationFormField
             form={form}
             name="email"
-            label={t('form.email')}
+            label={t("form.email")}
             type="email"
             placeholder="email@example.com"
           />
-          <RegistrationFormField 
+          <RegistrationFormField
             form={form}
             name="university"
-            label={t('form.university')}
+            label={t("form.university")}
           />
-          <RegistrationFormField 
+          <RegistrationFormField
             form={form}
             name="teamName"
-            label={t('form.teamName')}
+            label={t("form.teamName")}
           />
-          <RegistrationFormField 
+          <RegistrationFormField
             form={form}
             name="teamSize"
-            label={t('form.teamSize')}
+            label={t("form.teamSize")}
             type="number"
             placeholder="1"
           />
         </div>
-        
-        <RegistrationFormField 
+
+        <RegistrationFormField
           form={form}
           name="teamMembers"
-          label={t('form.teamMembers')}
+          label={t("form.teamMembers")}
         />
-        
-        <Button type="submit" className="w-full bg-violet-600 hover:bg-violet-700" disabled={isSubmitting}>
+
+        <Button
+          type="submit"
+          className="w-full bg-violet-600 hover:bg-violet-700"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
-            <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t('common.loading')}</>
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />{" "}
+              {t("common.loading")}
+            </>
           ) : (
-            t('common.submit')
+            t("common.submit")
           )}
         </Button>
       </form>
